@@ -57,14 +57,14 @@ export type IFlagKey =
     | 'consumptionModel'
     | 'edgeObservability'
     | 'addEditStrategy'
-    | 'cleanupReminder'
-    | 'removeInactiveApplications'
     | 'registerFrontendClient'
-    | 'featureLinks'
-    | 'projectLinkTemplates'
     | 'reportUnknownFlags'
     | 'lastSeenBulkQuery'
-    | 'newGettingStartedEmail';
+    | 'newGettingStartedEmail'
+    | 'lifecycleMetrics'
+    | 'customMetrics'
+    | 'createFlagDialogCache'
+    | 'sideMenuCleanup';
 
 export type IFlags = Partial<{ [key in IFlagKey]: boolean | Variant }>;
 
@@ -273,25 +273,8 @@ const flags: IFlags = {
         process.env.UNLEASH_EXPERIMENTAL_ADD_EDIT_STRATEGY,
         false,
     ),
-
-    cleanupReminder: parseEnvVarBoolean(
-        process.env.UNLEASH_EXPERIMENTAL_CLEANUP_REMINDER,
-        false,
-    ),
-    removeInactiveApplications: parseEnvVarBoolean(
-        process.env.UNLEASH_EXPERIMENTAL_REMOVE_INACTIVE_APPLICATIONS,
-        false,
-    ),
     registerFrontendClient: parseEnvVarBoolean(
         process.env.UNLEASH_EXPERIMENTAL_REGISTER_FRONTEND_CLIENT,
-        false,
-    ),
-    featureLinks: parseEnvVarBoolean(
-        process.env.UNLEASH_EXPERIMENTAL_FEATURE_LINKS,
-        false,
-    ),
-    projectLinkTemplates: parseEnvVarBoolean(
-        process.env.UNLEASH_EXPERIMENTAL_PROJECT_LINK_TEMPLATES,
         false,
     ),
     reportUnknownFlags: parseEnvVarBoolean(
@@ -304,6 +287,18 @@ const flags: IFlags = {
     ),
     newGettingStartedEmail: parseEnvVarBoolean(
         process.env.UNLEASH_EXPERIMENTAL_NEW_GETTING_STARTED_EMAIL,
+        false,
+    ),
+    lifecycleMetrics: parseEnvVarBoolean(
+        process.env.UNLEASH_EXPERIMENTAL_LIFECYCLE_METRICS,
+        false,
+    ),
+    createFlagDialogCache: parseEnvVarBoolean(
+        process.env.UNLEASH_EXPERIMENTAL_CREATE_FLAG_DIALOG_CACHE,
+        false,
+    ),
+    sideMenuCleanup: parseEnvVarBoolean(
+        process.env.UNLEASH_EXPERIMENTAL_SIDE_MENU_CLEANUP,
         false,
     ),
 };

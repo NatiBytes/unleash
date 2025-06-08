@@ -34,6 +34,8 @@ import PersonalDashboardIcon from '@mui/icons-material/DashboardOutlined';
 import { ProjectIcon } from 'component/common/ProjectIcon/ProjectIcon';
 import PlaygroundIcon from '@mui/icons-material/AutoFixNormal';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunchOutlined';
+import BuildIcon from '@mui/icons-material/Build';
 
 // TODO: move to routes
 const icons: Record<
@@ -82,8 +84,10 @@ const icons: Record<
     '/personal': PersonalDashboardIcon,
     '/projects': ProjectIcon,
     '/playground': PlaygroundIcon,
+    '/custom-metrics': RocketLaunchIcon,
     GitHub: GitHubIcon,
     Documentation: LibraryBooksIcon,
+    Configure: BuildIcon,
 };
 
 export const IconRenderer: FC<{ path: string }> = ({ path }) => {
